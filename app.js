@@ -99,12 +99,34 @@ const bondFilms = [
     { "title" : "The Living Daylights", "year" : 1987, "actor" : "Timothy Dalton", "gross" : "$381,088,866" },
     { "title" : "A View to a Kill", "year" : 1985, "actor" : "Roger Moore", "gross" : "$321,172,633" },
     { "title" : "License to Kill", "year" : 1989, "actor" : "Timothy Dalton", "gross" : "$285,157,191" }
-  ];
+];
 const bondTitles = [];
 for(let i = 0; i < bondFilms.length; i++){
     bondTitles.push(bondFilms[i].title);
 }
 
-console.log(bondTitles);
+
+const oddBonds = [];
+for(let i = 0; i < bondFilms.length; i++){
+    if (bondFilms[i].year%2 !== 0){
+        oddBonds.push(bondFilms[i]);
+    }
+}
+const addThese = []
+
+for(let i = 0; i < bondFilms.length; i++){
+    bondFilms[i].gross = bondFilms[i].gross.replace('$','');
+    bondFilms[i].gross = bondFilms[i].gross.replace(',','');
+    bondFilms[i].gross = bondFilms[i].gross.replace(',','');
+    bondFilms[i].gross = bondFilms[i].gross.replace(',','');
+    console.log(bondFilms[i].gross);
+    addThese.push(parseInt(bondFilms[i].gross, 10));
+}
+let total = 0;
+for( let i = 0; i < addThese.length; i++){
+    total += addThese[i];
+}
+console.log(total);
+
 
 
